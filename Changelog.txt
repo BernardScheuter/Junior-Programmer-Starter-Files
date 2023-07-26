@@ -1,0 +1,7 @@
+26072023
+
+- Adjusted the start screen of the project to the "Menu" scene.
+
+- Abstraction update (See Readme.txt or https://github.com/BernardScheuter/Junior-Programmer-Starter-Files )
+
+- Encapsulation update (See Readme.txt or https://github.com/BernardScheuter/Junior-Programmer-Starter-Files )
