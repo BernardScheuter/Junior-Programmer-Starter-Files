@@ -1,7 +1,25 @@
+27072023
+
+- I skipped a couple of exercises, going through the complete course to add missing bits and pieces to the project.
+- Update to the data persistence mission, adding a highscore to complete the exercise
+
 26072023
 
 - Adjusted the start screen of the project to the "Menu" scene.
-
 - Abstraction update (See Readme.txt or https://github.com/BernardScheuter/Junior-Programmer-Starter-Files )
-
 - Encapsulation update (See Readme.txt or https://github.com/BernardScheuter/Junior-Programmer-Starter-Files )
+
+Details:
+Abstraction update:
+- Added new methods to UserControl.cs script:
+	HandleSelection
+		Everything that was crammed under the Mouse 0 button(Left), has moved here.
+	HandleAction
+		Everything that was stuffed under the Mouse 1 button(Right), has moved here.
+  Instead of copy/pasting the code everywhere, you can call the HandleSelection() or HandleAction() method.
+
+Encapsulation update:
+- MainManager.cs:
+ 	rewritten: "public static MainManager Instance;" to "public static MainManager Instance { get; private set; }
+	So other classes can "get" the value, but not "set" it, it can be only set within this class.
+	The "variable" is rewritten to a "property"!

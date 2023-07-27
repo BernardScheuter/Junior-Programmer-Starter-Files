@@ -8,6 +8,8 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance { get; private set; }
 
     public Color TeamColor;
+    public string PlayerName;
+    public int PlayerScore, HighScore;
 
     private void Awake()
     {
@@ -18,19 +20,20 @@ public class MainManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        LoadColor();
+        LoadData();
     }
 
     [System.Serializable]
-    class SaveData
+    class Data
     {
         public Color TeamColor;
+        public string PlayerName;
+        public int HighScore;
     }
 
-    public void SaveColor()
+    public void SaveData()
     {
-        SaveData data = new SaveData();
+        Data data = new Data();
         data.TeamColor = TeamColor;
 
         string json = JsonUtility.ToJson(data);
@@ -38,13 +41,13 @@ public class MainManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadColor()
+    public void LoadData()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            Data data = JsonUtility.FromJson<Data>(json);
 
             TeamColor = data.TeamColor;
         }
